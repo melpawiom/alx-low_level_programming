@@ -1,24 +1,46 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main -  checks for checks for a digit (0 through 9).
- *
+ * print_number -  checks for checks for a digit (0 through 9).
+ * @n: n -  Variable
  * Return: Always 0.
  */
-int main(void)
+void print_number(int n)
 {
-	long x, y;
+	unsigned int z;
+	int m, b;
 
-	x = 612852475143;
+	b = 10;
 
-	for (y = 2; x > y; y++)
+	if (n < 10 && n >= 0)
 	{
-		while (x % y == 0)
-		{
-			x = x / y;
-		}
+		_putchar (n + '0');
 	}
-	printf("%lu", y);
-	putchar('\n');
-	return (0);
+	else if (n > -10 && n < 0)
+	{
+		n = n - 2 * n;
+		_putchar('-');
+		_putchar (n + '0');
+	}
+
+	else
+	{
+		if (n < 0)
+		{
+			n = n * -1;
+			_putchar ('-');
+		}
+		z = n;
+	while (z / b > 9)
+	{
+		b = b * 10;
+	}
+	while (b > 0)
+	{
+		m = z / b;
+		z = z % b;
+		_putchar (m + '0');
+		b = b / 10;
+	}
+	}
 }
